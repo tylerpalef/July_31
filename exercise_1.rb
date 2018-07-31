@@ -11,16 +11,15 @@ end
 # ////////////////////////////////
 def event(array)
   event_201 = []
-  array[:events].each do |y|
-    if y[:room_id] == 1 && [:attendees] > 50
+  array[:data][:events].each do |y|
+    if y[:room_id] == 1 && [:attendees] => 50
       puts "ERROR not a big enough room"
-    elsif y[:room_id] == 1 && [:attendees] < 50
-      event_201 << y
     end
-  end
+  elsif y[:room_id] == 1 && [:attendees] =< 50
+      event_201 << y
   return event_201
+  end
 end
-
 
 david = { data: { rooms:
     [ { id: 1, room_number: "201", capacity: 50}, { id: 2, room_number: "301", capacity: 200 }, { id: 3, room_number: "1B", capacity: 100}
